@@ -1,0 +1,2 @@
+
+sudo vagrant up
