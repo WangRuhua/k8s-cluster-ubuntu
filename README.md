@@ -4,7 +4,7 @@ PS: Don't hesitate  give a star ⭐ :heart: :star:
 
 spin up three node cluster
 
-* 192.168.56.13 aster
+* 192.168.56.13 master
 * 192.168.56.14 worker-1
 * 192.168.56.15 worker-2
 
