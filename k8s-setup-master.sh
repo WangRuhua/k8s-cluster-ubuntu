@@ -52,4 +52,4 @@ sudo modprobe br_netfilter
 #sed 's/#   /swap.*/#swap.img/' /etc/fstab
 #sudo swapoff -a
 
-service systemd-resolved restart
+systemctl restart systemd-resolved

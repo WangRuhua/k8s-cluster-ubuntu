@@ -23,6 +23,8 @@ vagrant up
 To access each machine respectively via 
 ```
 vagrant ssh master
+vagrant ssh worker-1
+vagrant ssh worker-2
 ```
 in master node
 
