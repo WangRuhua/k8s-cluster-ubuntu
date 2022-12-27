@@ -1,6 +1,12 @@
 
+### configuration parameters ###
+
+#Ubuntu 20.04.5 LTS (Focal Fossa)
+BOX_BASE = "ubuntu/focal64"
+
+
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = BOX_BASE
   config.vm.define "master" do | w |
   w.vm.hostname = "master"
   w.vm.network "private_network", ip: "192.168.56.13"
@@ -12,12 +18,12 @@ Vagrant.configure("2") do |config|
   w.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
   end
   w.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get install -y git wget vim curl
+    apt update
+    apt install -y git wget vim curl
    SHELL
   end
 
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = BOX_BASE
   config.vm.define "worker-1" do | w |
       w.vm.hostname = "worker-1"
       w.vm.network "private_network", ip: "192.168.56.14"
@@ -30,11 +36,11 @@ Vagrant.configure("2") do |config|
       w.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
     end
    w.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get install -y git wget vim 
+     apt update
+     apt install -y git wget vim 
    SHELL
   end 
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = BOX_BASE
   config.vm.define "worker-2" do | w |
       w.vm.hostname = "worker-2"
       w.vm.network "private_network", ip: "192.168.56.15"
@@ -47,8 +53,8 @@ Vagrant.configure("2") do |config|
         w.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
   end
    w.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get install -y git wget vim curl
+     apt update
+     apt install -y git wget vim curl
    SHELL
   end  
 end
